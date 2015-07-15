@@ -18,7 +18,7 @@
       </div>  
       
       <div class="col-md-12">
-        <p><?php echo $profile->role; ?></p>
+        <p><?php echo ($profile->role == 1) ? 'Admin' : 'Employee';?></p>
         <hr>
         <p><strong>Address: </strong><?php echo $profile->address; ?></p>
         <p><strong>Incase of emergency:</strong></p>

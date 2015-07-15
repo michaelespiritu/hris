@@ -43,7 +43,7 @@
                   <ul class="dropdown-menu">
                     <li><a href="profile.php" class="active">Profile</a></li>
                     <?php if($profile->role == 1): ?>
-                      <li><a href="registration.html">Registration</a></li>
+                      <li><a href="registration.php">Registration</a></li>
                     <?php endif; ?>
                     <li><a href="settings.php">Settings</a></li>
                     <li role="separator" class="divider"></li>

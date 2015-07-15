@@ -14,17 +14,13 @@ class User{
 	 * Register User
 	 */
 	public function register($data){
+
 			//Insert Query
-			$this->db->query('INSERT INTO users (name, email, avatar, username, password, about, last_activity) 
-											VALUES (:name, :email, :avatar, :username, :password, :about, :last_activity)');
-			//Bind Values
-			$this->db->bind(':name', $data['name']);
-			$this->db->bind(':email', $data['email']);
-			$this->db->bind(':avatar', $data['avatar']);
-			$this->db->bind(':username', $data['username']);
+			$this->db->query('INSERT INTO users (employee_id, password) 
+											VALUES (:employee_id, :password)');
+
+			$this->db->bind(':employee_id', $data['employee_id']);
 			$this->db->bind(':password', $data['password']);
-			$this->db->bind(':about', $data['about']);
-			$this->db->bind(':last_activity', $data['last_activity']);
 			//Execute
 			if($this->db->execute()){
 				return true;
@@ -32,6 +28,7 @@ class User{
 				return false;
 			}
 			//echo $this->db->lastInsertId();
+
 	}
 	
 	/*

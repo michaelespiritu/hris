@@ -12,24 +12,28 @@
         <div class="col-md-12 padding-15">
           <h3 class="text-center">Profile Information</h3>
           <hr>
-          <label>Employee ID:</label>
-          <p class="form-control" disabled><?php echo getUser()['employee_id'] ?></p>
-          <hr>
-          <h4>Change Password</h4>
 
           <form>
             <div class="form-group">
-              <label for="current_password">Current Password</label>
-              <input type="password" class="form-control" id="current_password" placeholder="Current Password">
-            </div>
-            <div class="form-group">
-              <label for="new_password">New Password</label>
-              <input type="password" class="form-control" id="new_password" placeholder="New Password">
-            </div>
-            <div class="form-group">
-              <label for="confirm_password">Confirm Password</label>
-              <input type="password" class="form-control" id="confirm_password" placeholder="Confirm Password">
-            </div>
+            <label for="first_name">First Name</label>
+            <input type="first_name" class="form-control" id="first_name" placeholder="First Name" value="<?php echo $profile->first_name ?>">
+          </div>
+          <div class="form-group">
+            <label for="last_name">Last Name</label>
+            <input type="last_name" class="form-control" id="last_name" placeholder="Last Name" value="<?php echo $profile->last_name ?>">
+          </div>
+          <div class="form-group">
+            <label for="address">Address</label>
+            <input type="address" class="form-control" id="address" placeholder="Address" value="<?php echo $profile->address ?>">
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" placeholder="Email" value="<?php  echo$profile->email ?>">
+          </div>
+          <div class="form-group">
+            <label for="contact_number">Contact Number</label>
+            <input type="contact_number" class="form-control" id="contact_number" placeholder="Contact Number" value="<?php echo $profile->contact_number ?>">
+          </div>
             <div class="text-right">
               <button type="submit" class="btn btn-default">Update</button>
             </div>
