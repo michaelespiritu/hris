@@ -10,7 +10,7 @@
 		$user = new User;
 		
 		if($user->login($employee_id, $password)){
-			redirect('profile.php','You have been logged in','success');
+			redirect('profile.php');
 		} else {
 			redirect('index.php','Incorrect Information','error');
 		}

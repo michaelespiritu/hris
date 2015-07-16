@@ -21,14 +21,53 @@ class User{
 
 			$this->db->bind(':employee_id', $data['employee_id']);
 			$this->db->bind(':password', $data['password']);
+			
 			//Execute
 			if($this->db->execute()){
-				return true;
+				return $this->registerprofile($data, $this->db->lastInsertId());
+				 
 			} else {
 				return false;
 			}
 			//echo $this->db->lastInsertId();
 
+	}
+	 
+	/*
+	 * Register Profile
+	 */
+	public function registerprofile($data, $id){
+			//Insert Query
+			$this->db->query('INSERT INTO profiles (user_id, first_name, last_name, email, address, contact_number, role) 
+											VALUES ('.$id.', :first_name, :last_name, :email, :address, :contact_number, :role)');
+			$this->db->bind(':first_name', $data['first_name']);
+			$this->db->bind(':last_name', $data['last_name']);
+			$this->db->bind(':email', $data['email']);
+			$this->db->bind(':address', $data['address']);
+			$this->db->bind(':contact_number', $data['contact_number']);
+			$this->db->bind(':role', $data['role']);
+			//Execute
+			if($this->db->execute()){
+				return $this->register_incase_of_emergency($id);
+				 
+			} else {
+				return false;
+			}
+	}
+	 
+	/*
+	 * Register Contact Person in Emergency
+	 */
+	public function register_incase_of_emergency($id){
+		$this->db->query('INSERT INTO in_case_of_emergency (user_id) 
+											VALUES (:user_id)');
+		$this->db->bind(':user_id', $id);
+		if($this->db->execute()){
+			return true;
+			 
+		} else {
+			return false;
+		}
 	}
 	
 	/*
@@ -96,17 +135,7 @@ class User{
 		$_SESSION['employee_id'] = $row->employee_id;
 		$_SESSION['join_date'] = $row->join_date;
 	}
-	
-	/*
-	 * User Logout
-	*/
-	public function logout(){
-		unset($_SESSION['is_logged_in']);
-		unset($_SESSION['user_id']);
-		unset($_SESSION['employee_id']);
-		unset($_SESSION['join_date']);
-		return true;
-	}
+
 	
 	/*
 	 * Get Total # Of Users
@@ -127,12 +156,35 @@ class User{
 		return $row;
 	}	
 	/*
-	 * Get Emergency Contract # of loggedin User
+	 * Get Emergency Contact # of loggedin User
 	 */
 	public function getEmergencyContact(){
 		$id = $_SESSION['user_id'];
 		$this->db->query('SELECT * FROM in_case_of_emergency WHERE user_id = '.$id);
 		$row = $this->db->single();
 		return $row;
+	}
+	/*
+	 * Reset Password
+	 */
+	public function resetPassword($password, $employee_id){
+		$this->db->query('UPDATE users SET password = :password WHERE id= :employee_id');
+		$this->db->bind(':password', $password);
+		$this->db->bind(':employee_id', $employee_id);
+		$row = $this->db->execute();
+		return $this->logout();
+	}
+
+
+
+	/*
+	 * User Logout
+	*/
+	public function logout(){
+		unset($_SESSION['is_logged_in']);
+		unset($_SESSION['user_id']);
+		unset($_SESSION['employee_id']);
+		unset($_SESSION['join_date']);
+		return true;
 	}
 }

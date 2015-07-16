@@ -3,6 +3,7 @@
 <div class="row background-white padding-15">
   <?php displayMessage(); ?>
   <h3 class="text-center">Employee Registration</h3>
+  <p class="text-center"><small>* = required</small></p>
   <hr>
   <form class="form-label-bold" method="POST" action="registration.php">
     <div class="form-group">
@@ -32,9 +33,9 @@
     <div class="form-group">
       <label for="role">Choose Role*</label>
       <select class="form-control" name="role">
-        <option></option>
-        <option>Admin</option>
-        <option>Employee</option>
+        <option value=""></option>
+        <option value="1">Admin</option>
+        <option value="2">Employee</option>
       </select>
     </div>
     <div class="form-group text-right">

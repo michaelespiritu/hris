@@ -17,21 +17,21 @@
           <hr>
           <h4>Change Password</h4>
 
-          <form>
+          <form method="POST" action="reset_login_password.php">
             <div class="form-group">
               <label for="current_password">Current Password</label>
-              <input type="password" class="form-control" id="current_password" placeholder="Current Password">
+              <input type="password" class="form-control" name="current_password" placeholder="Current Password">
             </div>
             <div class="form-group">
               <label for="new_password">New Password</label>
-              <input type="password" class="form-control" id="new_password" placeholder="New Password">
+              <input type="password" class="form-control" name="new_password" placeholder="New Password">
             </div>
             <div class="form-group">
               <label for="confirm_password">Confirm Password</label>
-              <input type="password" class="form-control" id="confirm_password" placeholder="Confirm Password">
+              <input type="password" class="form-control" name="confirm_password" placeholder="Confirm Password">
             </div>
             <div class="text-right">
-              <button type="submit" class="btn btn-default">Update</button>
+              <button type="submit" class="btn btn-default" name="submit_button">Update</button>
             </div>
           </form>
         </div>

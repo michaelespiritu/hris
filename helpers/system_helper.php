@@ -82,3 +82,31 @@ function quickRandom($length = 16){
 
     return substr(str_shuffle(str_repeat($pool, 5)), 0, $length);
 }
+/*
+ * Generate Random string
+*/
+function getprofilepicture($path){
+    if(!empty($path)){
+    	$path = BASE_URI.$path;
+    }else{
+    	$path = BASE_URI.'images/avatar/unknown_man.jpg';
+    }
+
+    return $path;
+}
+/*
+ * Generate Random string
+*/
+function getIncaseOfEmergency($data){
+	$info = (array)$data;
+    if(!empty($info['first_name']) && !empty($info['last_name']) && !empty($info['relationship'])  && !empty($info['contact_number'])  ){
+    	$content = '
+        <p><strong>Incase of emergency:</strong></p>
+        <p>'.$info['first_name'] .' '.$info['last_name'].' ( '.$info['relationship'].' )</p>
+        <p>'.$info['contact_number'].'</p>';
+    }else{
+    	$content = '';
+    }
+
+    return $content;
+}

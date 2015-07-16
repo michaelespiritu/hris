@@ -4,7 +4,7 @@
   <div class="col-md-12 no-padding upper-header">
     <br>
     <div class="col-md-3 col-sm-12 col-xs-12 text-center">
-      <img src="<?php echo BASE_URI; ?><?php echo $profile->profile_picture; ?>" class="thumbnail profile-pic">
+      <img src="<?php echo getprofilepicture($profile->profile_picture); ?>" class="thumbnail profile-pic">
     </div>
     <div class="col-md-9 col-sm-12 col-xs-12">
       <div class="padding-15">
@@ -21,9 +21,8 @@
         <p><?php echo ($profile->role == 1) ? 'Admin' : 'Employee';?></p>
         <hr>
         <p><strong>Address: </strong><?php echo $profile->address; ?></p>
-        <p><strong>Incase of emergency:</strong></p>
-        <p><?php echo $getEmergencyContact->first_name ?> <?php echo $getEmergencyContact->last_name ?> (<?php echo $getEmergencyContact->relationship ?>)</p>
-        <p><?php echo $getEmergencyContact->contact_number ?></p>
+        
+        <?php echo getIncaseOfEmergency($getEmergencyContact); ?>
       </div>
       </div>
     </div>
