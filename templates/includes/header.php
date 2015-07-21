@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -37,7 +38,7 @@
               
               
               <ul class="nav navbar-nav navbar-right">
-                
+                <li><a href="course.php"><span class="glyphicon glyphicon-list"></span> Course</a></li>
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span> Option <span class="caret"></span></a>
                   <ul class="dropdown-menu">

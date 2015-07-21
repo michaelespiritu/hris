@@ -1,4 +1,4 @@
-<?php include('../includes/header.php'); ?>
+<?php include('../../includes/header.php'); ?>
 
 <div class="row background-white padding-15">
   <?php displayMessage(); ?>
@@ -44,4 +44,4 @@
   </form>
 </div>
 
-<?php include('../includes/footer.php'); ?>
+<?php include('../../includes/footer.php'); ?>

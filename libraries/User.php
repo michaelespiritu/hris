@@ -176,7 +176,79 @@ class User{
 	}
 
 
+	/*
+	* Update Profile
+	*/
+	public function updateProfile($data, $id){
+		//Insert Query
+		$this->db->query('UPDATE profiles SET first_name = :first_name , last_name = :last_name, address = :address, email = :email, contact_number = :contact_number WHERE user_id = :user_id');
 
+		$this->db->bind(':first_name', $data['first_name']);
+		$this->db->bind(':last_name', $data['last_name']);
+		$this->db->bind(':email', $data['email']);
+		$this->db->bind(':address', $data['address']);
+		$this->db->bind(':contact_number', $data['contact_number']);
+		$this->db->bind(':user_id', $id);
+		
+		//Execute
+		if($this->db->execute()){
+			return true;
+			 
+		} else {
+			return false;
+		}
+	}
+
+	/*
+	* Update IOM
+	*/
+	public function updateIOM($data, $id){
+		//Insert Query
+		$this->db->query('UPDATE in_case_of_emergency SET first_name = :first_name , last_name = :last_name, relationship = :relationship, contact_number = :contact_number WHERE user_id = :user_id');
+
+		$this->db->bind(':first_name', $data['first_name']);
+		$this->db->bind(':last_name', $data['last_name']);
+		$this->db->bind(':relationship', $data['relationship']);
+		$this->db->bind(':contact_number', $data['contact_number']);
+		$this->db->bind(':user_id', $id);
+		
+		//Execute
+		if($this->db->execute()){
+			return true;
+			 
+		} else {
+			return false;
+		}
+	}
+	/*
+	 * Get total # of employee
+	 */
+	public function getEmployee(){
+		
+		$this->db->query('SELECT * FROM profiles WHERE role = 2 ORDER BY last_name ASC');
+		$rows = $this->db->resultset();
+		return $rows;
+	}
+	
+	/*
+	 * Get Profile of User Search
+	 */
+	public function getProfileSearch($id){
+		$this->db->query('SELECT profiles.*, users.* FROM profiles INNER JOIN users ON users.id = profiles.user_id AND users.id = :user_id');
+		$this->db->bind(':user_id', $id);
+		$row = $this->db->single();
+		return $row;
+	}		
+
+	/*
+	 * Get Emergency Contact # of searched User
+	 */
+	public function getSearchedEmergencyContact($id){
+		$this->db->query('SELECT * FROM in_case_of_emergency WHERE user_id = :user_id');
+		$this->db->bind(':user_id', $id);
+		$row = $this->db->single();
+		return $row;
+	}
 	/*
 	 * User Logout
 	*/

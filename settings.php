@@ -4,7 +4,7 @@
 
 if(isLoggedIn()){
 	//Get Template & Assign Vars
-	$template = new Template('templates/dashboard/settings.php');
+	$template = new Template('templates/dashboard/settings/settings.php');
 
 	//Create User Object
 	$user = new User;

@@ -1,4 +1,4 @@
-<?php include('../includes/header.php'); ?>
+<?php include('../../includes/header.php'); ?>
 <div class="row background-white">
   <?php displayMessage(); ?>
   <div class="col-md-12 no-padding">
@@ -7,6 +7,7 @@
        <ul class="nav nav-tabs">
         <li role="presentation" class="active"><a href="settings.php">Account</a></li>
         <li role="presentation"><a href="update_profile.php">Profile</a></li>
+        <li role="presentation"><a href="iom.php">IOM</a></li>
       </ul>      
       <div class="settings-tab clearfix form-bold-label">
         <div class="col-md-12 padding-15">
@@ -39,4 +40,4 @@
     </div>
   </div>
 </div><!-- /.background-white -->
-<?php include('../includes/footer.php'); ?>
+<?php include('../../includes/footer.php'); ?>

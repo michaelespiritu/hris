@@ -31,31 +31,8 @@
 </div>
 <br>
 <div class="row background-white padding-15">
-  <div class="col-md-12">
-
-    <div class="col-md-6">
-      <h3>Requirements: </h3>
-      <br>
-      <p><strong>PAG IBIG #: </strong>14344</p>
-      <p><strong>PHILHEALTH #: </strong>14344</p>
-      <p><strong>SSS #: </strong>14344</p>
-      <p><strong>TIN #: </strong>14344</p>
-      <p><strong>NBI CLEARANCE: </strong>Provided</p>
-      <p><strong>2316: </strong>To be follow</p>
-      
-    </div>
-    <div class="col-md-6">
-      <div class="col-md-6 no-padding">
-        <p><strong>Date Hired: </strong></p>
-        <p><?php echo formatDate(getUser()['join_date']);  ?></p>
-      </div>
-      <div class="col-md-6 no-padding">
-        <p><strong>Evaluation Date: </strong></p>
-        <p>May 25, 2016</p>
-      </div>
-    </div>
-    
-  </div>
+ 
+  <?php ($profile->role == 1) ? include('lower-section-admin.php') : include('lower-section-non-admin.php'); ?>
 
 </div>
 <?php include('../includes/footer.php'); ?>

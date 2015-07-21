@@ -44,7 +44,7 @@ if(isset($_POST['register'])){
 }
 
 //Get Template & Assign Vars
-$template = new Template('templates/dashboard/registration.php');
+$template = new Template('templates/dashboard/registration/registration.php');
 $template->profile = $user->getProfile();
 //Assign Vars
 

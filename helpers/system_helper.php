@@ -110,3 +110,18 @@ function getIncaseOfEmergency($data){
 
     return $content;
 }
+
+
+/*
+* Output Variable
+*/
+
+function outputVariable($data){
+	if(!empty($data)){
+		$data = $data;
+	}else{
+		$data = '';
+	}
+
+	return $data;
+}
