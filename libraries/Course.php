@@ -46,11 +46,11 @@ class Course {
 	/*
 	 * Get Profile of Subject Search
 	 */
-	public function getSubjectSearch($id){
-		$this->db->query('SELECT * FROM courses where ');
-		$this->db->bind(':user_id', $id);
+	public function getSubjectCourse($code){
+		$this->db->query('SELECT * FROM courses WHERE course_code = '.$code );
+		//$this->db->bind(':course_code', $id);
 		$row = $this->db->single();
-		return $row;
+		return $code;
 	}		
 
 

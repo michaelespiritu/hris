@@ -16,19 +16,19 @@
           <form method="POST" action="iom.php">
             <div class="form-group">
             <label for="first_name">First Name</label>
-            <input type="first_name" class="form-control" name="first_name" placeholder="First Name" value="<?php echo outputVariable($profile->first_name) ?>">
+            <input type="first_name" class="form-control" name="first_name" placeholder="First Name" value="<?php echo outputVariable($iom->first_name) ?>">
           </div>
           <div class="form-group">
             <label for="last_name">Last Name</label>
-            <input type="last_name" class="form-control" name="last_name" placeholder="Last Name" value="<?php echo outputVariable($profile->last_name) ?>">
+            <input type="last_name" class="form-control" name="last_name" placeholder="Last Name" value="<?php echo outputVariable($iom->last_name) ?>">
           </div>
           <div class="form-group">
             <label for="last_name">Relationship</label>
-            <input type="last_name" class="form-control" name="relationship" placeholder="Relationship" value="<?php echo outputVariable($profile->relationship) ?>">
+            <input type="last_name" class="form-control" name="relationship" placeholder="Relationship" value="<?php echo outputVariable($iom->relationship) ?>">
           </div>
           <div class="form-group">
             <label for="contact_number">Contact Number</label>
-            <input type="contact_number" class="form-control" name="contact_number" placeholder="Contact Number" value="<?php echo outputVariable($profile->contact_number) ?>">
+            <input type="contact_number" class="form-control" name="contact_number" placeholder="Contact Number" value="<?php echo outputVariable($iom->contact_number) ?>">
           </div>
             <div class="text-right">
               <button type="submit" name="update_submit" class="btn btn-default">Update</button>

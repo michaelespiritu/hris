@@ -10,8 +10,9 @@ if(isLoggedIn()){
 	$user = new User;
 	//Create Validator Object
 	$validate = new Validator;
-	
-	$template->profile = $user->getEmergencyContact();
+
+	$template->profile = $user->getProfile();
+	$template->iom = $user->getEmergencyContact();
 
 	if(isset($_POST['update_submit'])){
 		$data = array();

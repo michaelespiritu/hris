@@ -19,7 +19,7 @@
           <br>
           <form method="POST" action="create_subject.php" id="subject_form">
             <input type="hidden" name="total_count" value="1">    
-            <div id="subject_box">
+            <div id="subject_box"> </div>
               <div class="well">
                 <div id="txtHint"></div>
                 <div class="form-group">
@@ -31,7 +31,6 @@
                   <input type="text" class="form-control" name="subject_name_1" placeholder="Subject Name">
                 </div>
               </div>
-            </div>
             <div class="text-right">
               <button type="submit" name="create_btn" id="subject_create" class="btn btn-default">Create</button>
             </div>

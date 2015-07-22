@@ -32,7 +32,7 @@
 <br>
 <div class="row background-white padding-15">
  
-  <?php ($profile->role == 1) ? include('lower-section-admin.php') : include('lower-section-non-admin.php'); ?>
+  <?php //($profile->role == 1) ? include('lower-section-admin.php') : include('lower-section-non-admin.php'); ?>
 
 </div>
 <?php include('../includes/footer.php'); ?>

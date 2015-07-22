@@ -38,11 +38,14 @@
               
               
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="course.php"><span class="glyphicon glyphicon-list"></span> Course</a></li>
+                <li><a href="profile.php"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+                <li><a href="message.php"><span class="glyphicon glyphicon-envelope"></span> Message</a></li>
+                <?php if($profile->role == 1): ?>
+                  <li><a href="search.php"><span class="glyphicon glyphicon-search"></span> Search</a></li>
+                <?php endif; ?> 
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog"></span> Option <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="profile.php" class="active">Profile</a></li>
                     <?php if($profile->role == 1): ?>
                       <li><a href="registration.php">Registration</a></li>
                     <?php endif; ?>

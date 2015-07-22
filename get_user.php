@@ -15,7 +15,7 @@ echo $output = '<div class="well">
                     <td style="width:50%;border:1px dotted #666666;padding:15px;">'.$data->employee_id.'</td>
                 </tr>
                 <tr>
-                    <td style="width:50%;border:1px dotted #666666;padding:15px;"><strong>Date Hired ID</strong></td>
+                    <td style="width:50%;border:1px dotted #666666;padding:15px;"><strong>Date Hired</strong></td>
                     <td style="width:50%;border:1px dotted #666666;padding:15px;">'.formatDate($data->join_date).'</td>
                 </tr>
                 <tr>

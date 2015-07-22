@@ -229,6 +229,15 @@ class User{
 		$rows = $this->db->resultset();
 		return $rows;
 	}
+	/*
+	 * Get total # of employee
+	 */
+	public function getEmployeeAll(){
+		
+		$this->db->query('SELECT * FROM profiles ORDER BY last_name ASC');
+		$rows = $this->db->resultset();
+		return $rows;
+	}
 	
 	/*
 	 * Get Profile of User Search

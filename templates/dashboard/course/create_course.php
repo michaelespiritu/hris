@@ -16,7 +16,8 @@
           <form method="POST" action="create_course.php">
             <div class="form-group">
               <label for="first_name">Course Code</label>
-              <input type="first_name" class="form-control" name="course_code" placeholder="Course Code">
+              <input type="first_name" class="form-control" name="course_code" placeholder="Course Code" onchange="getCourse(this.value)">
+              <div id="subject_box"></div>
             </div>
             <div class="form-group">
               <label for="first_name">Course Name</label>

@@ -26,9 +26,9 @@ $('#add_subject').click(function(){
     $('#subject_box').append('<div class="well"><div class="form-group"><label for="first_name">Subject Code</label> <input type="text" class="form-control" name="subject_code_'+x+'" placeholder="Subject Code"></div><div class="form-group"> <label for="first_name">Subject Name</label>  <input type="text" class="form-control" name="subject_name_'+x+'" placeholder="Subject Name"></div> </div>');
     $('[name=total_count]').val(x);
 });
-function getSubject(str){
+function getCourse(str){
      if (str == "") {
-        document.getElementById("txtHint").innerHTML = "";
+        document.getElementById("subject_box").innerHTML = "";
         return;
     } else { 
         if (window.XMLHttpRequest) {
@@ -40,22 +40,23 @@ function getSubject(str){
         }
         xmlhttp.onreadystatechange = function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+                document.getElementById("subject_box").innerHTML = xmlhttp.responseText;
             }
         }
-        xmlhttp.open("GET","get_subject.php?q="+str,true);
+        xmlhttp.open("GET","get_course.php?q="+str,true);
         xmlhttp.send();
     }
 }
-$('#subject_create').click(function(){
+$('#form-required').click(function(){
 
-    if($('input[type="text"]').val() == ''){
-        $('input[type="text"]').css({
-          border: "1px red solid"
-        });
-        event.preventDefault();
-    }else{
-        return true;
-    }
 
+    $('.required-form').each(function(){
+        $(this).css('border-color',''); 
+        if(!$.trim($(this).val())){ //if this field is empty 
+            $(this).css('border-color','red'); //change border color to red   
+           event.preventDefault();
+        }else{
+            return true;
+        }
+    });
 });

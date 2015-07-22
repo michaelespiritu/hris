@@ -5,5 +5,5 @@
 $course = new Course;
 $q = intval($_GET['q']);
 
-$data = $course->getSubjectSearch($q);
-echo $output = '';
+$data = $course->getSubjectCourse($q);
+echo $output = var_dump($data);
