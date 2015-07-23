@@ -16,7 +16,7 @@ class Message {
 	 */
 	 public function inbox(){
 	 	//Select Query
-		$this->db->query('SELECT messages.*, profiles.* FROM messages INNER JOIN profiles ON messages.message_to_id = :message_to_id AND profiles.user_id = messages.message_from_id');
+		$this->db->query('SELECT messages.*, profiles.first_name, profiles.last_name FROM messages INNER JOIN profiles ON messages.message_to_id = :message_to_id AND profiles.user_id = messages.message_from_id ORDER BY messages.date_sent DESC');
 		//$this->db->query('SELECT messages.* FROM messages WHERE message_to_id = :message_to_id');
 		$this->db->bind(':message_to_id', getUser()['user_id']);
 		$rows = $this->db->resultset();
@@ -28,7 +28,7 @@ class Message {
 	 */
 	 public function sent(){
 	 	//Select Query
-		$this->db->query('SELECT * FROM messages WHERE message_from_id = :message_from_id');
+		$this->db->query('SELECT messages.*, profiles.first_name, profiles.last_name FROM messages INNER JOIN profiles ON messages.message_from_id = :message_from_id AND profiles.user_id = messages.message_to_id ORDER BY messages.date_sent DESC');
 		$this->db->bind(':message_from_id', getUser()['user_id']);
 		$rows = $this->db->resultset();
 		return $rows;
@@ -54,6 +54,22 @@ class Message {
 			return false;
 		}
 	 }
+	 /*
+	 * Set Read message
+	 */
+	 public function readmessage($id){
+	 	//Select Query
+		$this->db->query('UPDATE messages SET open = 1 WHERE id = :id');
+		$this->db->bind(':id', $id);
+		//Execute
+		if($this->db->execute()){
+			return true;
+			 
+		} else {
+			return false;
+		}
+	 }
+
 
 
 }

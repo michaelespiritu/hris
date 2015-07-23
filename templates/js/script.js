@@ -60,3 +60,17 @@ $('#form-required').click(function(){
         }
     });
 });
+
+function update(target){
+     $.ajax({
+        url: "read_message.php",
+        type: "POST",
+        data: { 'id': target, 'read': '1' },                   
+        success: function(data)
+        {
+           $('#readmessage-'+target).removeClass();
+           
+           setInterval(function() {$('#readmessage-'+target).addClass('glyphicon glyphicon-star-empty');}, 500);
+        }
+    });
+}

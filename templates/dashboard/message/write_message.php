@@ -6,7 +6,7 @@
     <div class="padding-15">
        <ul class="nav nav-tabs">
         <li role="presentation"><a href="message.php">Inbox</a></li>
-        <li role="presentation"><a href="iom.php">Sent</a></li>
+        <li role="presentation"><a href="sent.php">Sent</a></li>
         <li role="presentation" class="active"><a href="write_message.php">Write Message</a></li>
       </ul>      
       <div class="settings-tab clearfix form-bold-label">
