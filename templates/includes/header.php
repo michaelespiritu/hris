@@ -8,7 +8,10 @@
     <title>HRIS</title>
 
     <!-- Bootstrap -->
-    <link href="<?php echo BASE_URI; ?>/templates/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo BASE_URI; ?>/templates/css/bootstrap.min.css" rel="stylesheet"> 
+    <link href="<?php echo BASE_URI; ?>/templates/css/jquery-ui.min.css" rel="stylesheet"> 
+    <link href='<?php echo BASE_URI; ?>/templates/css/fullcalendar.css' rel='stylesheet' />
+    <link href='<?php echo BASE_URI; ?>/templates/css/fullcalendar.print.css' rel='stylesheet' media='print' />
     <link href="<?php echo BASE_URI; ?>/templates/css/style.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -40,6 +43,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="profile.php"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
                 <li><a href="message.php"><span class="glyphicon glyphicon-envelope"></span> Message</a></li>
+                <li><a href="leave.php"><span class="glyphicon glyphicon-plane"></span> Leave</a></li>
                 <?php if($profile->role == 1): ?>
                   <li><a href="search.php"><span class="glyphicon glyphicon-search"></span> Search</a></li>
                 <?php endif; ?> 

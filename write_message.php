@@ -21,9 +21,11 @@ if(isLoggedIn()){
 		$data = array();
 		$data['recipient'] = $_POST['recipient'];
 		$data['body_message'] = $_POST['body_message'];
+		$data['title_message'] = $_POST['title_message'];
+		$data['reply'] = $_POST['reply'];
 		
 		//Required Fields
-		$field_array = array('recipient','body_message');
+		$field_array = array('recipient','body_message', 'title_message');
 		
 		if($validate->isRequired($field_array)){
 			//Register User

@@ -20,13 +20,19 @@
                 <select class="form-control required-form" name="recipient">
                   <option></option>
                   <?php foreach ($employee as $info ) {
-                    echo '<option value="'.$info->user_id.'">'.$info->last_name.', '.$info->first_name.'</option>';
+                    if($info->user_id != getUser()['user_id']){
+                      echo '<option value="'.$info->user_id.'">'.$info->last_name.', '.$info->first_name.'</option>';
+                    }
                   } ?>
                 </select>
               </div>
               <div class="form-group">
+                <label for="body_message">Title</label>
+                <input type="text" class="form-control required-form" name="title_message">
+                <input type="hidden" class="form-control required-form" name="reply" value="<?php echo '0' ?>">
+              </div><div class="form-group">
                 <label for="body_message">Message</label>
-                <textarea class="form-control required-form" rows="3" name="body_message"></textarea>
+                <textarea class="form-control" rows="3" name="body_message"></textarea>
               </div>
               <button type="submit" class="btn btn-default" id="form-required" name="sent-btn">Send!</button>
             </form>

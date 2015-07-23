@@ -19,6 +19,7 @@
                 <tr>
                   <td></td>
                   <td>To</td>
+                  <td>Title</td>
                   <td>Date</td>
                   <td>Options</td>
                 </tr>
@@ -27,7 +28,8 @@
                   <?php foreach($sent as $info): ?>
                   <tr>
                     <td class="text-center"><span class="<?php echo ($info->open == 0) ? 'glyphicon glyphicon-star' : 'glyphicon glyphicon-star-empty'; ?>" id="readmessage"></span></td>
-                    <td><?php echo $info->last_name ?>, <?php echo $info->first_name ?></td>
+                    <td><?php echo outputVariable($info->last_name) ?>, <?php echo outputVariable($info->first_name) ?></td>
+                    <td><?php echo ($info->reply == 1) ? 'RE: ' : '';?><?php echo outputVariable($info->message_title) ?></td>
                     <td><?php echo formatDateTime($info->date_sent) ?></td>
                     <td><button type="button" class="btn btn-default col-md-12" data-toggle="modal" data-target="#message-<?php echo $info->id ?>">Read</button></td>
                   </tr>
@@ -38,7 +40,7 @@
                       <div class="modal-content">
                         <div class="modal-header">
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                          <h4 class="modal-title" id="myModalLabel">To <?php echo $info->last_name ?>, <?php echo $info->first_name ?></h4>
+                          <h4 class="modal-title" id="myModalLabel">To <?php echo outputVariable($info->last_name) ?>, <?php echo outputVariable($info->first_name) ?></h4>
                         </div>
                         <div class="modal-body clearfix">
                           <div class="col-md-12">

@@ -1,3 +1,37 @@
+$( document ).ready( function() {
+   $('[name=body_message]').ckeditor(); // Use CKEDITOR.replace() 
+   $('#calendar').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,basicWeek,basicDay'
+      },
+      defaultDate: $.now(),
+      editable: false,
+      eventLimit: true, // allow "more" link when too many events
+      events: 'http://hris.dev/get_calendar_view.php'
+    });
+} );
+
+$(function() {
+    $( "#from" ).datepicker({
+      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 3,
+      onClose: function( selectedDate ) {
+        $( "#to" ).datepicker( "option", "minDate", selectedDate );
+      }
+    });
+    $( "#to" ).datepicker({
+      defaultDate: "+1w",
+      changeMonth: true,
+      numberOfMonths: 3,
+      onClose: function( selectedDate ) {
+        $( "#from" ).datepicker( "option", "maxDate", selectedDate );
+      }
+    });
+  });
+
 function showUser(str) {
     if (str == "") {
         document.getElementById("txtHint").innerHTML = "";
@@ -74,3 +108,4 @@ function update(target){
         }
     });
 }
+

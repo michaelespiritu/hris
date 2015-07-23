@@ -28,7 +28,7 @@ class Message {
 	 */
 	 public function sent(){
 	 	//Select Query
-		$this->db->query('SELECT messages.*, profiles.first_name, profiles.last_name FROM messages INNER JOIN profiles ON messages.message_from_id = :message_from_id AND profiles.user_id = messages.message_to_id ORDER BY messages.date_sent DESC');
+		$this->db->query('SELECT messages.*, profiles.first_name, profiles.last_name FROM messages INNER JOIN profiles ON messages.message_from_id = :message_from_id AND profiles.user_id = messages.message_from_id ORDER BY messages.date_sent DESC');
 		$this->db->bind(':message_from_id', getUser()['user_id']);
 		$rows = $this->db->resultset();
 		return $rows;
@@ -37,14 +37,28 @@ class Message {
 	 /*
 	 * Send Message
 	 */
+	 public function getMessageReply($id){
+		//Insert Query
+		$this->db->query('SELECT messages.*, profiles.first_name, profiles.last_name FROM messages INNER JOIN profiles ON messages.id = :message_id AND profiles.user_id = messages.message_from_id');
+
+		$this->db->bind(':message_id', $id);
+		$row = $this->db->single();
+		return $row;
+	 } 
+
+	 /*
+	 * Send Message
+	 */
 	 public function sendmessage($data){
 		//Insert Query
-		$this->db->query('INSERT INTO messages (message_from_id, message_to_id, message_body) 
-										VALUES (:message_from_id, :message_to_id, :message_body)');
+		$this->db->query('INSERT INTO messages (message_from_id, message_to_id, message_title,message_body, reply, open) 
+										VALUES (:message_from_id, :message_to_id, :title_message,:message_body,:reply, 0)');
 
 		$this->db->bind(':message_from_id', getUser()['user_id']);
 		$this->db->bind(':message_to_id', $data['recipient']);
 		$this->db->bind(':message_body', $data['body_message']);
+		$this->db->bind(':title_message', $data['title_message']);
+		$this->db->bind(':reply', $data['reply']);
 		
 		//Execute
 		if($this->db->execute()){

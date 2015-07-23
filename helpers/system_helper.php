@@ -102,8 +102,8 @@ function getIncaseOfEmergency($data){
     if(!empty($info['first_name']) && !empty($info['last_name']) && !empty($info['relationship'])  && !empty($info['contact_number'])  ){
     	$content = '
         <p><strong>Incase of emergency:</strong></p>
-        <p>'.$info['first_name'] .' '.$info['last_name'].' ( '.$info['relationship'].' )</p>
-        <p>'.$info['contact_number'].'</p>';
+        <p>'.outputVariable($info['first_name']) .' '.outputVariable($info['last_name']).' ( '.outputVariable($info['relationship']).' )</p>
+        <p>'.outputVariable($info['contact_number']).'</p>';
     }else{
     	$content = '';
     }
@@ -118,7 +118,7 @@ function getIncaseOfEmergency($data){
 
 function outputVariable($data){
 	if(!empty($data)){
-		$data = $data;
+		$data = strip_tags(htmlspecialchars($data));
 	}else{
 		$data = '';
 	}
