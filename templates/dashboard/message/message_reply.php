@@ -26,8 +26,8 @@
                 <textarea class="form-control" rows="3" name="body_message">
                   
 
-                ===== WRITE YOUR REPLY ABOVE THIS LINE ====
-                 
+                
+                <p>>> On <?php echo outputVariable(formatDateTime($messagereply->date_sent)) ?> <span><?php echo outputVariable($messagereply->last_name) ?>, <?php echo outputVariable($messagereply->first_name) ?> wrote:</span></p>
                 <?php echo outputVariable($messagereply->message_body) ?>
                 </textarea>
               </div>
