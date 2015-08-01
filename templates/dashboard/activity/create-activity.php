@@ -1,0 +1,45 @@
+<?php include('../../includes/header.php'); ?>
+<div class="row background-white">
+  <?php displayMessage(); ?>
+  <div class="col-md-12 no-padding">
+   
+    <div class="padding-15">
+       <ul class="nav nav-tabs">
+        <li role="presentation" ><a href="activity.php">Activity</a></li>
+        <?php if($profile->role == 1) :?>
+          <li role="presentation" class="active"><a href="create-activity.php">Create Activity</a></li>
+        <?php endif; ?>
+      </ul>      
+      <div class="settings-tab clearfix form-bold-label">
+        <div class="col-md-12 padding-15">
+          <h3 class="text-center">Create Activity</h3>
+          <hr>
+          <form method="POST" action="">
+            <div class="form-group">
+              <label for="activity_title">Activity Title</label>
+              <input type="text" class="form-control required-form" id="activity_title" name="activity_title">
+            </div>
+            <div class="form-group clearfix">
+              <div class="col-md-5 no-padding clearfix">
+                <label for="from">Start Date</label>
+                <input type="text" class="form-control required-form" id="from" name="from">
+              </div>
+              <div class="col-md-2 no-padding clearfix"></div>
+              <div class="col-md-5 no-padding clearfix">
+                <label for="to">End Date</label>
+                <input type="text" class="form-control required-form" id="to" name="to">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="leave_type">Note</label>
+              <textarea class="form-control required-form" rows="3" name="body_message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-default" name="activity_submit" id="form-required">Register</button>
+          </form>
+        </div>
+        
+      </div><!-- settings-tab -->
+    </div><!-- /.padding-15 -->    
+  </div><!-- col-md-12 no-padding -->
+</div><!-- /.background-white -->
+<?php include('../../includes/footer.php'); ?>

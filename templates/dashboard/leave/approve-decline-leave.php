@@ -46,7 +46,7 @@
               </div>
               <div class="form-group">
                 <label for="leave_type">Note</label>
-                <textarea class="form-control" rows="3" name="body_message"></textarea>
+                <textarea class="form-control required-form" rows="3" name="body_message"></textarea>
               </div>
               <button type="submit" class="btn btn-default" name="leave_submit" id="form-required">Submit</button>
             </form>

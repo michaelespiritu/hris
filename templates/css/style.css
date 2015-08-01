@@ -323,3 +323,8 @@ body.not-logged-in {
       border-bottom-right-radius: 4px;
     }
     /******************** SETTINGS PAGE *************************/
+    /******************** CALENDAR SETTINGS *************************/
+    .fc-content{
+      text-align: center;
+    }
+    /******************** CALENDAR SETTINGS *************************/

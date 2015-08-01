@@ -11,7 +11,18 @@ $( document ).ready( function() {
       eventLimit: true, // allow "more" link when too many events
       events: 'http://hris.dev/get_calendar_view.php'
     });
-} );
+   $('#activity').fullCalendar({
+      header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,basicWeek,basicDay'
+      },
+      defaultDate: $.now(),
+      editable: false,
+      eventLimit: true, // allow "more" link when too many events
+      events: 'http://hris.dev/all_activity.php'
+    });
+}); // end of document ready
 
 $(function() {
     $( "#from" ).datepicker({
@@ -88,6 +99,7 @@ $('#form-required').click(function(){
         $(this).css('border-color',''); 
         if(!$.trim($(this).val())){ //if this field is empty 
             $(this).css('border-color','red'); //change border color to red   
+            $('.cke').css('border-color','red'); //change border color to red   
            event.preventDefault();
         }else{
             return true;

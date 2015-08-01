@@ -43,6 +43,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="profile.php"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
                 <li><a href="message.php"><span class="glyphicon glyphicon-envelope"></span> Message</a></li>
+                <li><a href="activity.php"><span class="glyphicon glyphicon-calendar"></span> Activity</a></li>
                 <li><a href="leave.php"><span class="glyphicon glyphicon-plane"></span> Leave</a></li>
                 <?php if($profile->role == 1): ?>
                   <li><a href="search.php"><span class="glyphicon glyphicon-search"></span> Search</a></li>
