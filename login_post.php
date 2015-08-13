@@ -11,6 +11,7 @@
 		
 		if($user->login($employee_id, $password)){
 			redirect('profile.php');
+			
 		} else {
 			redirect('index.php','Incorrect Information','error');
 		}

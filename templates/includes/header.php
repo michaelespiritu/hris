@@ -45,6 +45,17 @@
                 <li><a href="message.php"><span class="glyphicon glyphicon-envelope"></span> Message</a></li>
                 <li><a href="activity.php"><span class="glyphicon glyphicon-calendar"></span> Activity</a></li>
                 <li><a href="leave.php"><span class="glyphicon glyphicon-plane"></span> Leave</a></li>
+                <li class="dropdown">
+                  <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-pencil"></span> Forms <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Seminar</a></li>
+                    <li><a href="#">COE</a></li>
+                    <li><a href="#">Make up Class/es</a></li>
+                    <li><a href="#">Business Form</a></li>
+                    <li><a href="#">Off Campus Activity</a></li>
+                    <li><a href="#">Clearance</a></li>
+                  </ul>
+                </li>
                 <?php if($profile->role == 1): ?>
                   <li><a href="search.php"><span class="glyphicon glyphicon-search"></span> Search</a></li>
                 <?php endif; ?> 
