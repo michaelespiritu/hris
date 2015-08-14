@@ -1,4 +1,18 @@
-$( document ).ready( function() {
+$( document ).ready( function() { 
+    $("#date-of-birth" ).datepicker({
+        changeMonth: true,
+        changeYear: true,
+        yearRange: '1920:2010',
+        dateFormat : 'dd-mm-yy',
+        defaultDate: new Date(1985, 00, 01)
+    });
+    $(".date-picker" ).datepicker({
+        changeMonth: true,
+        changeYear: true,
+        yearRange: '1920:2010',
+        dateFormat : 'dd-mm-yy',
+        defaultDate: new Date(1985, 00, 01)
+    });
    $('[name=body_message]').ckeditor(); // Use CKEDITOR.replace() 
    $('#calendar').fullCalendar({
       header: {

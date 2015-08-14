@@ -151,6 +151,13 @@ textarea{
 .height-auto{
   height: auto;
 }
+
+.width-980{
+  width: 980px;
+  max-width: 980px;
+  margin: 0 auto;
+  font-weight: bold;
+}
 /******************** CONTENT STYLE *************************/
 body {
   font-family: 'Open Sans', sans-serif;

@@ -27,7 +27,9 @@
         <input type="text" id="inputEmail" class="form-control" name="employee_id" placeholder="Employee ID" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Password" required>
-    		<a href="#">Forgot Password?</a>
+        <div class="col-md-6 no-padding"><p><a href="#">Forgot Password?</a></p></div>
+        
+    		<div class="col-md-6 no-padding"><p class="text-right"><a href="applicant.php">Applicant?</a></p></div>
     		<hr>
         <button class="btn btn-lg btn-primary btn-block" name="login_submit" type="submit">Sign in</button>
       </form>
